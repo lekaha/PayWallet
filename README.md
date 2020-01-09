@@ -35,3 +35,7 @@ samples, guidance on mobile development, and a full API reference.
 ## Inspired
 
 This is inspired from https://github.com/dongri/DonPay for Flutter version
+
+## Capture
+
+![Image of Pay Wallet](demo.gif)
