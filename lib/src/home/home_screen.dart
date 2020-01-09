@@ -89,8 +89,8 @@ class HomeScreenState extends State<HomeScreen> {
                 child: Image.asset(
                   viewModel.campaignLogoPath,
                   fit: BoxFit.fill,
-                  width: 80,
-                  height: 80,
+                  width: 64,
+                  height: 64,
                 ),
               )),
           Expanded(
@@ -98,46 +98,51 @@ class HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     _launchUrl(viewModel.campaign.campaign.media_url);
                   },
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: (viewModel.campaign.campaign != null)
-                        ? <Widget>[
-                            Text(viewModel.campaign.campaign.title,
-                                softWrap: true,
-                                overflow: TextOverflow.fade,
-                                style: TextStyle(
-                                  color: Color(0xFF222222),
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 12,
-                                )),
-                            (viewModel.campaign.campaign.start_time != null ||
-                                    viewModel.campaign.campaign.end_time !=
-                                        null)
-                                ? Text(
-                                    '${formatDate(viewModel.campaign.campaign.start_time, [
-                                      yyyy,
-                                      '-',
-                                      mm,
-                                      '-',
-                                      dd
-                                    ])}~${formatDate(viewModel.campaign.campaign.end_time, [
-                                      yyyy,
-                                      '-',
-                                      mm,
-                                      '-',
-                                      dd
-                                    ])}',
+                  child: Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: (viewModel.campaign.campaign != null)
+                            ? <Widget>[
+                                Text(viewModel.campaign.campaign.title,
                                     softWrap: true,
                                     overflow: TextOverflow.fade,
                                     style: TextStyle(
-                                      color: Color(0xFFAAAAAA),
+                                      color: Color(0xFF222222),
                                       fontWeight: FontWeight.normal,
-                                      fontSize: 10,
-                                    ))
-                                : Container()
-                          ]
-                        : <Widget>[Text('キャンペーン情報なし')],
-                  ))),
+                                      fontSize: 12,
+                                    )),
+                                (viewModel.campaign.campaign.start_time !=
+                                            null ||
+                                        viewModel.campaign.campaign.end_time !=
+                                            null)
+                                    ? Padding(
+                                        padding: EdgeInsets.all(4),
+                                        child: Text(
+                                            '${formatDate(viewModel.campaign.campaign.start_time, [
+                                              yyyy,
+                                              '-',
+                                              mm,
+                                              '-',
+                                              dd
+                                            ])}~${formatDate(viewModel.campaign.campaign.end_time, [
+                                              yyyy,
+                                              '-',
+                                              mm,
+                                              '-',
+                                              dd
+                                            ])}',
+                                            softWrap: true,
+                                            overflow: TextOverflow.fade,
+                                            style: TextStyle(
+                                              color: Color(0xFFAAAAAA),
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 10,
+                                            )))
+                                    : Container()
+                              ]
+                            : <Widget>[Text('キャンペーン情報なし')],
+                      )))),
         ],
       ),
     );
