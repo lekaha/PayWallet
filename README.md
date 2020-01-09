@@ -31,3 +31,7 @@ samples, guidance on mobile development, and a full API reference.
 
 - Android 16+
 - iOS 8+
+
+## Inspired
+
+This is inspired from https://github.com/dongri/DonPay for Flutter version
